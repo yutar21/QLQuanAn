@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Quản lý nhân viên</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">Nhà Hàng</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Cài đặt</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Hồ sơ</a></li>
+            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Đăng xuất</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/setting.png" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">admin</p>
+          <p class="app-sidebar__user-designation">admin@gmail.com</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li><a class="app-menu__item " href="ql_nhanvien.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Danh sách bàn</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item active" href="thucdon_monan.html"><i class="icon fa fa-circle-o"></i> Danh sách thực đơn & món ăn</a></li>
+            <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
+          </ul>
+        </li>
+        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
+        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
+        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div class="div">
+          <h1><i class="fa fa-laptop"></i>  Danh sách thực đơn & món ăn</h1>
+          <p> Thực đơn và giá cả</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#"> Thực đơn và giá cả</a></li>
+        </ul>
+      </div>
+      <!-- box-->
+      <div class="content-wrapper">
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-body">
+                  <table id="manageTable" class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                      <th>Hình</th>
+                      <th>Tên</th>
+                      <th>Gía</th>
+                      <th>Số Lượng</th>
+                      <th>Thời Gian làm</th>
+                      <th>Trạng thái</th>
+                      <th>chỉnh sửa</th>
+                    </tr>
+                    </thead>
+      
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- col-md-12 -->
+          </div>
+          <!-- /.row -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <script>
+      var table = document.getElementById("manageTable");
+
+// Tạo một hàng mới
+var row = table.insertRow();
+
+// Tạo các ô trong hàng mới
+var imageCell = row.insertCell(0);
+var nameCell = row.insertCell(1);
+var priceCell = row.insertCell(2);
+var lengthCell = row.insertCell(3);
+var timeCell = row.insertCell(4);
+var actionCell = row.insertCell(5);
+var editCell = row.insertCell(6);
+
+// Gán giá trị cho các ô
+imageCell.innerHTML = '<img src="./images/hamberger.png" width="50" height="50">';
+nameCell.innerHTML = 'hamberger';
+priceCell.innerHTML = '100.000đ';
+lengthCell.innerHTML = '10';
+timeCell.innerHTML = '10p';
+actionCell.innerHTML = 'còn';
+editCell.innerHTML = '<button type="button" class="btn btn-danger deleteProduct" data-id="productId">Xóa</button> <button type="button" class="btn btn-primary editProduct">Chỉnh sửa</button>'; // Thêm mã HTML cho các nút điều khiển
+$(document).ready(function() {
+  var table = $('#manageTable').DataTable();
+  
+  // Show modal when delete button is clicked
+  $('#manageTable tbody').on('click', '.deleteProduct', function() {
+    var row = $(this).closest('tr');
+    var data = table.row(row).data();
+    var productId = data['productId']; // Lấy id của sản phẩm cần xóa
+
+    // Hiển thị modal xác nhận xóa sản phẩm
+    if (confirm("Bạn có chắc muốn xóa sản phẩm này không?")) {
+      // Gửi yêu cầu xóa sản phẩm đến server
+      $.ajax({
+        url: 'products/delete/' + productId,
+        type: 'POST',
+        success: function() {
+          // Xóa sản phẩm khỏi bảng
+          table.row(row).remove().draw(false);
+        },
+        error: function() {
+          alert('Đã xảy ra lỗi khi xóa sản phẩm!');
+        }
+      });
+    }
+  });
+});
+      </script>
+            
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script>
+      $('.bs-component [data-toggle="popover"]').popover();
+      $('.bs-component [data-toggle="tooltip"]').tooltip();
+    </script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+  </body>
+</html>
