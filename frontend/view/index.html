@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quản lý nhân viên</title>
+    <title>Trang chủ</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,10 +36,10 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item " href="page-error.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
-        <li class="treeview"><a class="app-menu__item active " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li><a class="app-menu__item active" href="page-error.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
+        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
+            <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
             <li><a class="treeview-item " href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
           </ul>
         </li>
@@ -67,82 +67,11 @@
       </ul>
     </aside>
     <main class="app-content">
-      <div class="app-title">
-        <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Danh sách nhân viên</h1>
-          <p> Thông tin nhân viên</p>
-        </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> Thông tin nhân viên</a></li>
-        </ul>
-      </div>
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Danh sách nhân viên</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table id="userTable" class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Tên nhân viên</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>Tên tài khoản đăng nhập</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      
-      <script>
-        const editButtons = document.querySelectorAll('.edit-btn');
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-      
-        editButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút chỉnh sửa
-          });
-        });
-      
-        deleteButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút xóa
-          });
-        });
-      </script>
-      
-
+        <div class="page-error tile">
+            <h1><i class="fa fa-exclamation-circle"></i> Error 404: Page not found</h1>
+            <p>The page you have requested is not found.</p>
+            <p><a class="btn btn-primary" href="javascript:window.history.back();">Go Back</a></p>
+          </div>
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>

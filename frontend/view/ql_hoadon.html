@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quản lý nhân viên</title>
+    <title>Quản lý hóa đơn</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,9 +37,9 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item " href="page-error.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
-        <li class="treeview"><a class="app-menu__item active " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item  " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
+            <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
             <li><a class="treeview-item " href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
           </ul>
         </li>
@@ -61,7 +61,7 @@
             <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
+        <li><a class="app-menu__item active" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
         <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
@@ -69,147 +69,74 @@
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Danh sách nhân viên</h1>
-          <p> Thông tin nhân viên</p>
+          <h1><i class="fa fa-laptop"></i>  Quản lý hóa đơn</h1>
+          <p> Danh sách hóa đơn</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> Thông tin nhân viên</a></li>
-        </ul>
+          <li class="breadcrumb-item"><a href="#"> hóa đơn</a></li>
+        </ul>	<!-- Main content -->
       </div>
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Danh sách nhân viên</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table id="userTable" class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Tên nhân viên</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>Tên tài khoản đăng nhập</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
-      </div>
-      
-      <script>
-        const editButtons = document.querySelectorAll('.edit-btn');
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-      
-        editButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút chỉnh sửa
-          });
-        });
-      
-        deleteButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút xóa
-          });
-        });
-      </script>
-      
-
+      <div class="container">
+        <h2>Danh sách hóa đơn</h2>
+        <table class="table table-bordered table-hover table-striped" id="invoiceList">
+          <thead>
+            <tr>
+              <th>Mã hóa đơn</th>
+              <th>Ngày tạo</th>
+              <th>Mã giảm giá</th>
+              <th>Tổng tiền thanh toán</th>
+              <th>Mã nhân viên thu</th>
+              <th>Tên khách hàng</th>
+              <th>Tùy chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HD001</td>
+              <td>01/01/2022</td>
+              <td>GG001</td>
+              <td>1,000,000</td>
+              <td>NV001</td>
+              <td>Nguyễn Văn A</td>
+              <td>
+                <button class="btn btn-primary print-btn"><i class="fa fa-print"></i></button>
+                <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>HD002</td>
+              <td>02/01/2022</td>
+              <td>GG002</td>
+              <td>2,000,000</td>
+              <td>NV002</td>
+              <td>Nguyễn Văn B</td>
+              <style>
+                /* style cho button */
+.print-btn, .edit-btn, .delete-btn {
+  margin-right: 5px;
+}
+              </style>
+              <td>
+                <button class="btn btn-primary print-btn"><i class="fa fa-print"></i></button>
+                <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>      
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/ql_hoadon.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
   </body>
 </html>

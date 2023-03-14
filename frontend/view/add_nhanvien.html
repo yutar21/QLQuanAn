@@ -39,8 +39,8 @@
         <li><a class="app-menu__item " href="page-error.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
         <li class="treeview"><a class="app-menu__item active " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
-            <li><a class="treeview-item " href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
+            <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
+            <li><a class="treeview-item active" href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -70,77 +70,116 @@
       <div class="app-title">
         <div class="div">
           <h1><i class="fa fa-laptop"></i>  Danh sách nhân viên</h1>
-          <p> Thông tin nhân viên</p>
+          <p> Thêm nhân viên</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> Thông tin nhân viên</a></li>
+          <li class="breadcrumb-item"><a href="#"> nhân viên</a></li>
         </ul>
-      </div>
-      <div class="box">
+      </div><div class="box">
         <div class="box-header">
-          <h3 class="box-title">Danh sách nhân viên</h3>
+          <h3 class="box-title">Thêm nhân viên</h3>
         </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table id="userTable" class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Tên nhân viên</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>Tên tài khoản đăng nhập</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
-      </div>
+        <form role="form" action="" method="post">
+          <div class="box-body">
       
-      <script>
-        const editButtons = document.querySelectorAll('.edit-btn');
-        const deleteButtons = document.querySelectorAll('.delete-btn');
       
-        editButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút chỉnh sửa
-          });
-        });
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off">
+            </div>
       
-        deleteButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút xóa
-          });
-        });
-      </script>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="cpassword">Confirm password</label>
+              <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm Password" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="fname">Ngày sinh</label>
+              <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="lname">Họ Tên</label>
+              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="phone">Số điện thoại</label>
+              <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" autocomplete="off">
+            </div>
+      
+            <div class="form-group">
+              <label for="gender">Giới tính</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="gender" id="male" value="1">
+                  nữ
+                </label>
+                <label>
+                  <input type="radio" name="gender" id="female" value="2">
+                  name
+                </label>
+              </div>
+            </div>
+      
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success" id="saveBtn">Lưu</button>
+            <button type="button" class="btn btn-danger" id="backBtn">Thoát</button>
+          </div>          
+          <script>
+            // Lấy đối tượng button Save Changes
+            var saveBtn = document.getElementById('saveBtn');
+            
+            // Thêm sự kiện click cho button Save Changes
+            saveBtn.addEventListener('click', function() {
+              // Lấy các giá trị từ các input và select của form
+              var username = document.getElementById('username').value;
+              var email = document.getElementById('email').value;
+              var password = document.getElementById('password').value;
+              var cpassword = document.getElementById('cpassword').value;
+              var fname = document.getElementById('fname').value;
+              var phone = document.getElementById('phone').value;
+              var gender = document.querySelector('input[name="gender"]:checked').value;
+          
+              // Kiểm tra nếu các giá trị rỗng thì thông báo lỗi
+              if (groups === '' || store === '' || username === '' || email === '' || password === '' || cpassword === '' || fname === '' || lname === '' || phone === '' || gender === '') {
+                alert('Please fill all fields!');
+                return;
+              }
+          
+              // Kiểm tra nếu password và confirm password không giống nhau thì thông báo lỗi
+              if (password !== cpassword) {
+                alert('Passwords do not match!');
+                return;
+              }
+          
+              // Thực hiện gửi form
+              document.getElementById('userForm').submit();
+            });
+            
+            // Lấy đối tượng button Back
+            var backBtn = document.getElementById('backBtn');
+            
+            // Thêm sự kiện click cho button Back
+            backBtn.addEventListener('click', function() {
+              // Chuyển về trang danh sách user
+              window.location.href = 'ql_nhanvien.html';
+            });
+          </script>
+          
       
 
     </main>

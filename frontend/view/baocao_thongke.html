@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quản lý nhân viên</title>
+    <title>Báo cáo thống kê</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      #chart-container {
+        width: 80%;
+        margin: auto;
+      }
+      #chart {
+        height: 400px;
+      }
+      .button-group {
+        display: flex;
+        justify-content: center;
+      }
+      .button-group button {
+        margin: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .button-group button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -37,9 +65,9 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item " href="page-error.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
-        <li class="treeview"><a class="app-menu__item active " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item  " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item active" href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
+            <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
             <li><a class="treeview-item " href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
           </ul>
         </li>
@@ -63,86 +91,105 @@
         </li>
         <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
         <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
-        <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
+        <li><a class="app-menu__item active" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Danh sách nhân viên</h1>
-          <p> Thông tin nhân viên</p>
+          <h1><i class="fa fa-laptop"></i>  Báo cáo thống kê</h1>
+          <p> Thống kê</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> Thông tin nhân viên</a></li>
-        </ul>
+          <li class="breadcrumb-item"><a href="#"> thống kê</a></li>
+        </ul>	<!-- Main content -->
+      </div> 
+      <div id="chart-container">
+        <canvas id="chart"></canvas>
       </div>
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Danh sách nhân viên</h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <table id="userTable" class="table table-bordered table-hover table-striped">
-            <thead>
-              <tr>
-                <th>Tên nhân viên</th>
-                <th>Ngày sinh</th>
-                <th>Giới tính</th>
-                <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
-                <th>Tên tài khoản đăng nhập</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>yutar</td>
-                <td>11/11/2001</td>
-                <td>nam</td>
-                <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
-                <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- /.box-body -->
+      <div id="total-revenue"></div>
+      <div class="button-group">
+        <button id="month-button">Tháng</button>
+        <button id="year-button">Năm</button>
       </div>
-      
       <script>
-        const editButtons = document.querySelectorAll('.edit-btn');
-        const deleteButtons = document.querySelectorAll('.delete-btn');
-      
-        editButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút chỉnh sửa
-          });
+        // Dữ liệu tĩnh về doanh thu
+        var data = {
+          labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
+          revenues: {
+            "Tháng 1": 1000,
+            "Tháng 2": 1500,
+            "Tháng 3": 2000,
+            "Tháng 4": 1200,
+            "Tháng 5": 1800,
+            "Tháng 6": 2500
+          },
+          totalRevenue: 10000
+        };
+  
+        // Khởi tạo biểu đồ
+        var ctx = document.getElementById('chart').getContext('2d');
+        var chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Doanh thu',
+              data: Object.values(data.revenues),
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
         });
-      
-        deleteButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút xóa
-          });
-        });
-      </script>
-      
-
+  
+        // Hiển thị tổng doanh thu
+        var totalRevenue = document.getElementById('total-revenue');
+        totalRevenue.innerHTML = "Tổng doanh thu: " + data.totalRevenue;
+  
+        // Thiết lập sự kiện cho các nút chọn tháng và năm
+        var monthButton = document.getElementById('month-button');
+        var yearButton = document.getElementById('year-button');
+        monthButton.addEventListener('click', function() {
+  // Cập nhật biểu đồ và tổng doanh thu dựa trên dữ liệu tháng
+  data.labels = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"];
+  data.revenues = {
+    "Tháng 1": 1000,
+    "Tháng 2": 1500,
+    "Tháng 3": 2000,
+    "Tháng 4": 1200,
+    "Tháng 5": 1800,
+    "Tháng 6": 2500
+  };
+  data.totalRevenue = 10000;
+  chart.data.labels = data.labels;
+  chart.data.datasets[0].data = Object.values(data.revenues);
+  chart.update();
+  totalRevenue.innerHTML = "Tổng doanh thu: " + data.totalRevenue;
+});
+yearButton.addEventListener('click', function() {
+  // Cập nhật biểu đồ và tổng doanh thu dựa trên dữ liệu năm
+  data.labels = ["Năm 2021", "Năm 2022", "Năm 2023"];
+  data.revenues = {
+    "Năm 2021": 5000,
+    "Năm 2022": 7500,
+    "Năm 2023": 10000
+  };
+  data.totalRevenue = 22500;
+  chart.data.labels = data.labels;
+  chart.data.datasets[0].data = Object.values(data.revenues);
+  chart.update();
+  totalRevenue.innerHTML = "Tổng doanh thu: " + data.totalRevenue;
+});
+</script>
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -153,63 +200,5 @@
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
   </body>
 </html>
