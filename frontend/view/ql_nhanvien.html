@@ -46,23 +46,20 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="ql_ban.html"><i class="icon fa fa-circle-o"></i> Danh sách bàn</a></li>
-            <li><a class="treeview-item" href="edit_ban.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý phiếu giảm giá</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
               <li><a class="treeview-item" href="ql_phieugiamgia.html"><i class="icon fa fa-circle-o"></i> Danh sách phiếu</a></li>
-              <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
             </ul>
           </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="thucdon_monan.html"><i class="icon fa fa-circle-o"></i> Danh sách thực đơn & món ăn</a></li>
-            <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
+        <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
     </aside>
@@ -95,7 +92,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr data-name="yutar" data-birthday="11/11/2001" data-gender="nam" data-address="bg" data-phone="0123456" data-username="user1">
                 <td>yutar</td>
                 <td>11/11/2001</td>
                 <td>nam</td>
@@ -103,19 +100,19 @@
                 <td>0123456</td>
                 <td>user1</td>
                 <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-info edit-btn" data-row-id="1"><i class="fa fa-edit"></i></button>
                   <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
               <tr>
-                <td>yutar</td>
+                <td>yutar21</td>
                 <td>11/11/2001</td>
-                <td>nam</td>
+                <td>nữ</td>
                 <td>bg</td>
-                <td>0123456</td>
-                <td>user1</td>
+                <td>0123456789</td>
+                <td>user2</td>
                 <td>
-                  <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                  <button class="btn btn-info edit-btn" data-row-id="2"><i class="fa fa-edit"></i></button>
                   <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
@@ -130,16 +127,29 @@
         const deleteButtons = document.querySelectorAll('.delete-btn');
       
         editButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút chỉnh sửa
-          });
-        });
-      
+  btn.addEventListener('click', () => {
+    // Lưu thông tin của hàng tương ứng
+    const tr = btn.closest('tr');
+    const tenNhanVien = tr.cells[0].textContent;
+    const ngaySinh = tr.cells[1].textContent;
+    const gioiTinh = tr.cells[2].textContent;
+    const diaChi = tr.cells[3].textContent;
+    const soDienThoai = tr.cells[4].textContent;
+    const tenTaiKhoan = tr.cells[5].textContent;
+    
+    // Chuyển đến trang Biểu mẫu sửa đổi với thông tin được truyền qua query string
+    window.location.href = `add_nhanvien.html?tenNhanVien=${tenNhanVien}&ngaySinh=${ngaySinh}&gioiTinh=${gioiTinh}&diaChi=${diaChi}&soDienThoai=${soDienThoai}&tenTaiKhoan=${tenTaiKhoan}`;
+  });
+});
+
+
         deleteButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // TODO: Xử lý sự kiện khi người dùng click vào nút xóa
-          });
-        });
+  btn.addEventListener('click', () => {
+    const row = btn.parentNode.parentNode; // lấy ra hàng chứa button đang được click
+    row.parentNode.removeChild(row); // xoá hàng đó khỏi bảng
+  });
+});
+
       </script>
       
 
@@ -152,64 +162,5 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-    </script>
-    <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
   </body>
 </html>

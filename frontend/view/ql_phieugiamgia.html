@@ -46,32 +46,79 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="ql_ban.html"><i class="icon fa fa-circle-o"></i> Danh sách bàn</a></li>
-            <li><a class="treeview-item" href="edit_ban.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý phiếu giảm giá</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
               <li><a class="treeview-item active" href="ql_phieugiamgia.html"><i class="icon fa fa-circle-o"></i> Danh sách phiếu</a></li>
-              <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
             </ul>
           </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="thucdon_monan.html"><i class="icon fa fa-circle-o"></i> Danh sách thực đơn & món ăn</a></li>
-            <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
+        <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
     </aside>
     <main class="app-content">
-      <div class="page-error tile">
-        <h1><i class="fa fa-exclamation-circle"></i> Error 404: Page not found</h1>
-        <p>The page you have requested is not found.</p>
-        <p><a class="btn btn-primary" href="javascript:window.history.back();">Go Back</a></p>
+      <div class="app-title">
+        <div class="div">
+          <h1><i class="fa fa-laptop"></i>  Danh sách phiếu giảm giá</h1>
+          <p> phiếu giảm giá</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item"><a href="#"> phiếu giảm giá</a></li>
+        </ul>
       </div>
+      <!-- box-->
+      <div class="content-wrapper">
+        <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box">
+                <div class="box-body">
+                  <table class="table table-bordered table-hover table-striped" id="tableList">
+                    <thead>
+                    <tr>
+                      <th>Mã giảm giá</th>
+                      <th>% giảm</th>
+                      <th>% tối đa</th>
+                      <th>Thời gian bắt đầu</th>
+                      <th>Thời Gian kết thúc</th>
+                      <th>ghi chú </th>
+                      <th>Tuỳ chọn</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>5425424</td>
+                        <td>50%</td>
+                        <td>70%</td>
+                        <td>10/3/2023</td>
+                        <td>20/3/2023</td>
+                        <td>Duc deptrai vccc</td>
+                        <td>
+                          <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                          <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- col-md-12 -->
+          </div>
+          <!-- /.row -->
+        </section>
+      </div>
+      
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>

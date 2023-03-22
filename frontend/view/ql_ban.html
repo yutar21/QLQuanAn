@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
@@ -46,23 +50,20 @@
         <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item active" href="ql_ban.html"><i class="icon fa fa-circle-o"></i> Danh sách bàn</a></li>
-            <li><a class="treeview-item" href="edit_ban.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý phiếu giảm giá</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
               <li><a class="treeview-item" href="ql_phieugiamgia.html"><i class="icon fa fa-circle-o"></i> Danh sách phiếu</a></li>
-              <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
             </ul>
           </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="thucdon_monan.html"><i class="icon fa fa-circle-o"></i> Danh sách thực đơn & món ăn</a></li>
-            <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
+        <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
     </aside>
@@ -77,64 +78,63 @@
           <li class="breadcrumb-item"><a href="#"> bàn</a></li>
         </ul>	<!-- Main content -->
       </div>
-        <div class="container">
-            <h2>Danh sách bàn</h2>
-            <button type="button" class="btn btn-success" id="addTable">Thêm bàn</button>
-            <br /><br />
-            <table class="table table-bordered table-hover table-striped" id="tableList">
-              <thead>
-                <tr>
-                  <th>Vị trí</th>
-                  <th>Số người</th>
-                  <th>Trạng thái</th>
-                  <th>Tùy chọn</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>Đầy</td>
-                  <td>
-                    <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>0</td>
-                  <td>Trống</td>
-                  <td>
-                    <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> 
-          <!-- Modal -->
-<div class="modal fade" id="addTableModal" tabindex="-1" role="dialog" aria-labelledby="addTableModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+        <!-- HTML code -->
+<div class="container">
+  <h2>Danh sách bàn</h2>
+  <button type="button" class="btn btn-success" id="addTable">Thêm bàn</button>
+  <br /><br />
+  <table class="table table-bordered table-hover table-striped" id="tableList">
+    <thead>
+      <tr>
+        <th>Vị trí</th>
+        <th>Số người</th>
+        <th>Trạng thái</th>
+        <th>Tùy chọn</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>Đầy</td>
+        <td>
+          <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+          <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>0</td>
+        <td>Trống</td>
+        <td>
+          <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+          <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Định nghĩa cửa sổ modal -->
+<div class="modal fade" id="addTableModal" tabindex="-1" aria-labelledby="addTableModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addTableModalLabel">Thêm bàn mới</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="positionInput">Vị trí</label>
-            <input type="text" class="form-control" id="positionInput" placeholder="Nhập vị trí của bàn">
+        <form id="addTableForm">
+          <div class="mb-3">
+            <label for="tableLocation" class="form-label">Vị trí</label>
+            <input type="text" class="form-control" id="tableLocation" required>
           </div>
-          <div class="form-group">
-            <label for="seatsInput">Số người</label>
-            <input type="number" class="form-control" id="seatsInput" placeholder="Nhập số người tối đa">
+          <div class="mb-3">
+            <label for="tableCapacity" class="form-label">Số người</label>
+            <input type="number" class="form-control" id="tableCapacity" required>
           </div>
-          <div class="form-group">
-            <label for="statusInput">Trạng thái</label>
-            <select class="form-control" id="statusInput">
+          <div class="mb-3">
+            <label for="tableStatus" class="form-label">Trạng thái</label>
+            <select class="form-control" id="tableStatus" required>
               <option value="Trống">Trống</option>
               <option value="Đầy">Đầy</option>
             </select>
@@ -142,36 +142,252 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary" id="addTableBtn">Thêm</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary" form="addTableForm">Thêm</button>
       </div>
     </div>
   </div>
-</div>      
-    </main>
-    <script src="js/ql_ban.js">
-      // Lấy thẻ button thêm bàn
-const addTableBtn = document.getElementById("addTable");
+</div>
+<script>
+  const deleteButtons = document.querySelectorAll('.delete-btn');
+  // Lấy thẻ button "Thêm bàn"
+const addTableBtn = document.getElementById('addTable');
 
-// Lấy thẻ modal thêm bàn
-const addTableModal = document.getElementById("addTableModal");
-
-// Hiển thị modal khi người dùng click vào button thêm bàn
-addTableBtn.addEventListener("click", () => {
-  addTableModal.showModal();
+// Lấy thẻ modal
+const addTableModal = new bootstrap.Modal(document.getElementById('addTableModal'), {
+  keyboard: false
 });
-const editBtns = document.querySelectorAll('.edit-btn');
 
-editBtns.forEach(editBtn => {
-  editBtn.addEventListener('click', () => {
-    const tableRow = editBtn.parentNode.parentNode;
-    const position = tableRow.querySelector('td:nth-child(1)').textContent;
-    const numSeats = tableRow.querySelector('td:nth-child(2)').textContent;
-    // TODO: Hiển thị cửa sổ sửa thông tin bàn
+// Xử lý sự kiện click vào button "Thêm bàn"
+addTableBtn.addEventListener('click', () => {
+  // Hiển thị modal
+  addTableModal.show();
+});
+
+// Lấy thẻ form trong modal
+const addTableForm = document.getElementById('addTableForm');
+
+// Xử lý sự kiện submit form
+addTableForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  // Lấy giá trị từ các trường input trong form
+  const tableLocation = document.getElementById('tableLocation').value;
+  const tableCapacity = document.getElementById('tableCapacity').value;
+  const tableStatus = document.getElementById('tableStatus').value;
+  
+  // Thêm hàng mới vào bảng
+  const tableList = document.getElementById('tableList').getElementsByTagName('tbody')[0];
+  const newRow = tableList.insertRow();
+  newRow.innerHTML = `
+    <td>${tableLocation}</td>
+    <td>${tableCapacity}</td>
+    <td>${tableStatus}</td>
+    <td>
+      <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+      <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+    </td>
+  `;
+  
+  // Đóng modal
+  addTableModal.hide();
+  
+  // Reset form
+  addTableForm.reset();
+});
+deleteButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const row = btn.parentNode.parentNode; // lấy ra hàng chứa button đang được click
+    row.parentNode.removeChild(row); // xoá hàng đó khỏi bảng
   });
 });
 
-    </script>
+</script>
+
+<script>
+  $(document).ready(function(){
+    // Thêm sự kiện click cho các nút "edit-btn"
+    $(".edit-btn").click(function(){
+      // Lấy thông tin về vị trí, số người và trạng thái của hàng
+      var position = $(this).closest("tr").find("td:eq(0)").text();
+      var num_people = $(this).closest("tr").find("td:eq(1)").text();
+      var status = $(this).closest("tr").find("td:eq(2)").text();
+
+      // Hiển thị cửa sổ modal
+      $('#editModal').modal('show');
+
+      // Điền thông tin về hàng vào trong cửa sổ modal
+      $("#editModal").find("input[name='position']").val(position);
+      $("#editModal").find("input[name='num_people']").val(num_people);
+      if(status === "Đầy"){
+        $("#editModal").find("input[name='status'][value='Đầy']").prop("checked", true);
+      }else if(status === "Trống"){
+        $("#editModal").find("input[name='status'][value='Trống']").prop("checked", true);
+      }
+    });
+  });
+</script>
+
+<!-- Thêm cửa sổ modal vào trong body -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editModalLabel">Sửa thông tin bàn</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="position">Vị trí:</label>
+            <input type="text" class="form-control" name="position" readonly>
+          </div>
+          <div class="form-group">
+            <label for="num_people">Số người:</label>
+            <input type="number" class="form-control" name="num_people" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="status">Trạng thái:</label>
+            <div class="radio">
+              <label><input type="radio" name="status" value="Đầy" required>Đầy</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="status" value="Trống" required>Trống</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" id="saveChanges">Lưu thay đổi</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    // Thêm sự kiện click cho nút "Lưu thay đổi"
+    $("#saveChanges").click(function(){
+      // Lấy thông tin về vị trí, số người và trạng thái của hàng từ cửa sổ modal
+      var position = $("#editModal").find("input[name='position']").val();
+      var num_people = $("#editModal").find("input[name='num_people']").val();
+      var status = $("#editModal").find("input[name='status']:checked").val();
+
+      // Cập nhật thông tin hàng trong bảng
+      var table = $("#tableList").find("tr:contains('" + position + "')");
+      table.find("td:eq(1)").text(num_people);
+      table.find("td:eq(2)").text(status);
+
+      // Đóng cửa sổ modal
+      $('#editModal').modal('hide');
+    });
+  });
+</script>
+
+  
+
+
+  
+
+<!-- 
+<script>
+  // Lấy tất cả các nút "edit-btn" trên trang HTML
+  const editBtns = document.querySelectorAll('.edit-btn');
+
+  // Đăng ký sự kiện click cho mỗi nút "edit-btn"
+  editBtns.forEach(editBtn => {
+    editBtn.addEventListener('click', () => {
+      // Lấy thông tin hàng tương ứng với nút "edit-btn" được nhấn
+      const row = editBtn.parentNode.parentNode;
+      const cells = row.getElementsByTagName('td');
+      const position = cells[0].innerText;
+      const numOfPeople = cells[1].innerText;
+      const status = cells[2].innerText;
+
+      // Tạo một cửa sổ modal để hiển thị thông tin của hàng đó
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+
+      const closeBtn = document.createElement('span');
+      closeBtn.classList.add('close');
+      closeBtn.innerHTML = '&times;';
+
+      const form = document.createElement('form');
+
+      const positionLabel = document.createElement('label');
+      positionLabel.innerHTML = 'Vị trí:';
+      const positionInput = document.createElement('input');
+      positionInput.setAttribute('type', 'text');
+      positionInput.setAttribute('name', 'position');
+      positionInput.setAttribute('value', position);
+      positionInput.setAttribute('readonly', true);
+
+      const numOfPeopleLabel = document.createElement('label');
+      numOfPeopleLabel.innerHTML = 'Số người:';
+      const numOfPeopleInput = document.createElement('input');
+      numOfPeopleInput.setAttribute('type', 'text');
+      numOfPeopleInput.setAttribute('name', 'numOfPeople');
+      numOfPeopleInput.setAttribute('value', numOfPeople);
+      numOfPeopleInput.setAttribute('required', true);
+
+      const statusLabel = document.createElement('label');
+      statusLabel.innerHTML = 'Trạng thái:';
+      const statusInput = document.createElement('input');
+      statusInput.setAttribute('type', 'text');
+      statusInput.setAttribute('name', 'status');
+      statusInput.setAttribute('value', status);
+      statusInput.setAttribute('readonly', true);
+
+      const saveBtn = document.createElement('button');
+      saveBtn.setAttribute('type', 'submit');
+      saveBtn.innerHTML = 'Lưu';
+
+      // Thêm các phần tử HTML vào cửa sổ modal
+      form.appendChild(positionLabel);
+      form.appendChild(positionInput);
+      form.appendChild(numOfPeopleLabel);
+      form.appendChild(numOfPeopleInput);
+      form.appendChild(statusLabel);
+      form.appendChild(statusInput);
+      form.appendChild(saveBtn);
+      modalContent.appendChild(closeBtn);
+      modalContent.appendChild(form);
+      modal.appendChild(modalContent);
+
+      // Đăng ký sự kiện click cho nút đóng cửa sổ modal
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      // Đăng ký sự kiện submit cho form
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        // Lấy thông tin đã sửa đổi từ các trường input
+        const editedNumOfPeople = numOfPeopleInput.value;
+
+        // Gửi dữ liệu đã sửa đổi đến máy chủ bằng AJAX
+        // ...
+
+        // Cập nhật thông tin hàng trong bảng dữ liệu trên trang HTML
+        cells[1].innerText = editedNumOfPeople;
+
+        // Đóng cửa sổ modal
+        modal.style.display = 'none';
+      });
+
+      // Thêm cửa sổ modal vào trang HTML
+      document.body.appendChild(modal);
+
+      // Hiển thị cửa sổ modal
+      modal.style.display = 'block';
+    });
+  });
+</script> -->
+
+
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>

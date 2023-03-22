@@ -46,23 +46,20 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="ql_ban.html"><i class="icon fa fa-circle-o"></i> Danh sách bàn</a></li>
-            <li><a class="treeview-item" href="edit_ban.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý phiếu giảm giá</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
               <li><a class="treeview-item" href="ql_phieugiamgia.html"><i class="icon fa fa-circle-o"></i> Danh sách phiếu</a></li>
-              <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
             </ul>
           </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="thucdon_monan.html"><i class="icon fa fa-circle-o"></i> Danh sách thực đơn & món ăn</a></li>
-            <li><a class="treeview-item" href="edit_monan.html"><i class="icon fa fa-circle-o"></i> Chỉnh sửa</a></li>
           </ul>
         </li>
         <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
+        <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
       </ul>
     </aside>
@@ -85,8 +82,8 @@
       
       
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off">
+              <label for="username">Tên tài khoản đăng nhập</label>
+              <input type="text" class="form-control" id="username-input" name="username" placeholder="Username" autocomplete="off">
             </div>
       
             <div class="form-group">
@@ -106,17 +103,22 @@
       
             <div class="form-group">
               <label for="fname">Ngày sinh</label>
-              <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" autocomplete="off">
+              <input type="text" class="form-control" id="birthday-input" name="fname" placeholder="First name" autocomplete="off">
             </div>
       
             <div class="form-group">
               <label for="lname">Họ Tên</label>
-              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" autocomplete="off">
+              <input type="text" class="form-control" id="gender-input" name="lname" placeholder="Last name" autocomplete="off">
             </div>
-      
+
+            <div class="form-group">
+              <label for="address">Địa chỉ</label>
+              <input type="text" class="form-control" id="address-input" name="address" placeholder="address" autocomplete="off">
+            </div>
+    
             <div class="form-group">
               <label for="phone">Số điện thoại</label>
-              <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" autocomplete="off">
+              <input type="text" class="form-control" id="phone-input" name="phone" placeholder="Phone" autocomplete="off">
             </div>
       
             <div class="form-group">
@@ -124,11 +126,11 @@
               <div class="radio">
                 <label>
                   <input type="radio" name="gender" id="male" value="1">
-                  nữ
+                  nam
                 </label>
                 <label>
                   <input type="radio" name="gender" id="female" value="2">
-                  name
+                  nữ
                 </label>
               </div>
             </div>
@@ -140,6 +142,30 @@
             <button type="button" class="btn btn-danger" id="backBtn">Thoát</button>
           </div>          
           <script>
+            // Lấy thông tin từ query string
+const urlParams = new URLSearchParams(window.location.search);
+const tenNhanVien = urlParams.get('tenNhanVien');
+const ngaySinh = urlParams.get('ngaySinh');
+const gioiTinh = urlParams.get('gioiTinh');
+const diaChi = urlParams.get('diaChi');
+const soDienThoai = urlParams.get('soDienThoai');
+const tenTaiKhoan = urlParams.get('tenTaiKhoan');
+
+// Điền thông tin vào các trường của biểu mẫu
+document.getElementById('username-input').value = tenTaiKhoan;
+document.getElementById('email').value = '';
+document.getElementById('password').value = '';
+document.getElementById('cpassword').value = '';
+document.getElementById('address-input').value = diaChi;
+document.getElementById('birthday-input').value = ngaySinh;
+document.getElementById('gender-input').value = tenNhanVien;
+document.getElementById('phone-input').value = soDienThoai;
+if (gioiTinh === 'nam') {
+  document.getElementById('male').checked = true;
+} else if (gioiTinh === 'nữ') {
+  document.getElementById('female').checked = true;
+}
+
             // Lấy đối tượng button Save Changes
             var saveBtn = document.getElementById('saveBtn');
             
