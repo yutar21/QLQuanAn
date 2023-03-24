@@ -74,6 +74,8 @@
           <li class="breadcrumb-item"><a href="#"> phiếu giảm giá</a></li>
         </ul>
       </div>
+      <button type="button" class="btn btn-success" id="addTable">Thêm phiếu</button>
+      <br /><br />
       <!-- box-->
       <div class="content-wrapper">
         <section class="content">
@@ -110,6 +112,7 @@
                   </table>
                 </div>
                 <!-- /.box-body -->
+                
               </div>
               <!-- /.box -->
             </div>
@@ -118,7 +121,42 @@
           <!-- /.row -->
         </section>
       </div>
-      
+
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="editModalLabel">Sửa thông tin phiếu giảm giá</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="position">Vị trí:</label>
+                  <input type="text" class="form-control" name="position" readonly>
+                </div>
+                <div class="form-group">
+                  <label for="num_people">Số người:</label>
+                  <input type="number" class="form-control" name="num_people" min="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="status">Trạng thái:</label>
+                  <div class="radio">
+                    <label><input type="radio" name="status" value="Đầy" required>Đầy</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="status" value="Trống" required>Trống</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary" id="saveChanges">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>

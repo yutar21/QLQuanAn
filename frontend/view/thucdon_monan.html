@@ -77,6 +77,8 @@
           <li class="breadcrumb-item"><a href="#"> Thực đơn và giá cả</a></li>
         </ul>
       </div>
+      <button type="button" class="btn btn-success" id="addTable">Thêm món ăn</button>
+      <br /><br />
       <!-- box-->
       <div class="content-wrapper">
         <section class="content">
@@ -185,6 +187,117 @@
     </div>
   </div>
 </div>
+<!-- Định nghĩa cửa sổ modal -->
+<div class="modal fade" id="addTableModal" tabindex="-1" aria-labelledby="addTableModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addTableModalLabel">Thêm món ăn</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addTableForm">
+          <div class="form-group">
+            <label for="product_image">Hình ảnh:</label>
+            <div class="kv-avatar">
+              <div class="file-loading">
+                <input id="product_image" name="Hình ảnh" type="file">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="product_name">Tên:</label>
+            <input type="text" class="form-control" name="product_name" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Giá:</label>
+            <input type="text" class="form-control" name="price"required>
+          </div>
+          <div class="form-group">
+            <label for="soluong">Số lượng:</label>
+            <input type="text" class="form-control" name="soluong"required>
+          </div>
+          <div class="form-group">
+            <label for="time">Thời gian:</label>
+            <input type="text" class="form-control" name="time"required>
+          </div>
+          <div class="form-group">
+            <label for="status">Trạng thái:</label>
+            <div class="radio">
+              <label><input type="radio" name="status" value="còn" required>còn</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="status" value="No" required>No</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary" form="addTableForm">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+   // Lấy thẻ button "Thêm nguyen lieu"
+const addTableBtn = document.getElementById('addTable');
+
+// Lấy thẻ modal
+const addTableModal = new bootstrap.Modal(document.getElementById('addTableModal'), {
+  keyboard: false
+});
+
+// Lấy thẻ table và tbody để thêm dữ liệu mới vào table
+const table = document.getElementById('tableList');
+const tbody = table.getElementsByTagName('tbody')[0];
+
+// Lấy thẻ button đóng của modal
+const closeModalBtn = addTableModal._element.querySelector('[data-bs-dismiss="modal"]');
+
+// Xử lý sự kiện click vào button "Thêm nguyen lieu"
+addTableBtn.addEventListener('click', () => {
+  // Hiển thị modal
+  addTableModal.show();
+});
+  // Lấy form và bảng
+const addTableForm = document.getElementById('addTableForm');
+const tableList = document.getElementById('tableList');
+
+// Thêm sự kiện click vào nút "Thêm"
+document.querySelector('#addTableModal button[type="submit"]').addEventListener('click', function(e) {
+  e.preventDefault(); // Ngăn chặn sự kiện mặc định của nút "submit"
+
+  // Tạo một hàng mới
+  const tr = document.createElement('tr');
+
+  // Thêm nội dung vào hàng mới
+  tr.innerHTML = `
+    <td><img src="${addTableForm.product_image.value}" alt="" width="50" height="50"></td>
+    <td>${addTableForm.product_name.value}</td>
+    <td>${addTableForm.price.value}</td>
+    <td>${addTableForm.soluong.value}</td>
+    <td>${addTableForm.time.value}</td>
+    <td>${addTableForm.status.value}</td>
+    <td>
+      <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+      <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+    </td>
+  `;
+
+  // Thêm hàng mới vào bảng
+  tableList.querySelector('tbody').appendChild(tr);
+
+  // Đóng cửa sổ modal
+  $('#addTableModal').modal('hide');
+});
+// Thêm sự kiện click vào nút "Đóng"
+document.querySelector('#addTableModal button[data-bs-dismiss="modal"]').addEventListener('click', function() {
+  $('#addTableModal').modal('hide');
+});
+
+</script>
 <script>
   $(document).ready(function(){
     // Thêm sự kiện click cho các nút "edit-btn"
