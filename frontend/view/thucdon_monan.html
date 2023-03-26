@@ -237,15 +237,17 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-close" data-dismiss="modal">Đóng</button>
         <button type="submit" class="btn btn-primary" form="addTableForm">Thêm</button>
       </div>
     </div>
   </div>
 </div>
+
+
 <script>
 
-   // Lấy thẻ button "Thêm nguyen lieu"
+   // Lấy thẻ button "Thêm món ăn"
 const addTableBtn = document.getElementById('addTable');
 
 // Lấy thẻ modal
@@ -293,6 +295,7 @@ document.querySelector('#addTableModal button[type="submit"]').addEventListener(
   // Thêm hàng mới vào bảng
   tableList.querySelector('tbody').appendChild(tr);
 
+  
   // Đóng cửa sổ modal
   $('#addTableModal').modal('hide');
 });
