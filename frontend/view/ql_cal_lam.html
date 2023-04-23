@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quản lý lịch làm việc</title>
+    <title>Quản lý ca làm</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,8 +49,8 @@
         <li><a class="app-menu__item " href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý chính sách giá</span></a></li>
         <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-              <li><a class="treeview-item active" href="ql_lich_lam_viec.html"><i class="icon fa fa-circle-o"></i>Lịch</a></li>
-              <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca làm</a></li>
+              <li><a class="treeview-item " href="ql_lich_lam_viec.html"><i class="icon fa fa-circle-o"></i>Lịch</a></li>
+              <li><a class="treeview-item active" href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca làm</a></li>
             </ul>
           </li>        
           <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span></a></li>
@@ -62,15 +62,15 @@
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Lịch làm việc</h1>
+          <h1><i class="fa fa-laptop"></i>  Ca làm</h1>
           <p> Danh sách</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> lịch làm việc</a></li>
+          <li class="breadcrumb-item"><a href="#"> Ca làm</a></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-success" id="addTable" data-toggle="modal" data-target="#addModal">Thêm lịch</button>
+      <button type="button" class="btn btn-success" id="addTable" data-toggle="modal" data-target="#addModal">Thêm ca</button>
       <br /><br />
       <div class="content-wrapper">
         <section class="content">
@@ -81,21 +81,21 @@
                     <table class="table table-bordered table-hover table-striped" id="tableList">
                       <thead>
                         <tr>
-                          <th>Mã nhân viên</th>
-                          <th>ngày làm việc</th>
-                          <th>mã ca làm</th>
-                          <th>ghi chú</th>
-                          <th>xác nhận</th>
-                          <th>Tuỳ chọn</th>
+                          <th>Mã ca</th>
+                          <th>Tên ca</th>
+                          <th>Thời gian bắt đầu</th>
+                          <th>Thời gian kết thúc</th>
+                          <th>Lương</th>
+                          <th>Tùy chọn</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>5425424</td>
+                          <td>5425424</td>
                           <td>23/3/2023</td>
-                          <td>5554</td>
-                          <td>Duc deptrai vccc</td>
-                          <td>đã làm</td>
+                          <td>30/3/2023</td>
+                          <td>300.000</td>
                           <td>
                             <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
@@ -127,27 +127,24 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="ma-nhan-vien">Mã nhân viên:</label>
-              <input type="text" class="form-control" id="ma-nhan-vien">
+              <label for="ma-ca">Mã ca:</label>
+              <input type="text" class="form-control" id="ma-ca">
+            </div>
+            <div class="form-group">
+                <label for="ten-ca">Tên ca:</label>
+                <input type="text" class="form-control" id="ten-ca">
             </div>
             <div class="form-group">
               <label for="ngay-lam-viec">Ngày làm việc:</label>
               <input type="date" class="form-control" id="ngay-lam-viec">
             </div>
             <div class="form-group">
-              <label for="ma-ca-lam">Mã ca làm:</label>
-              <input type="text" class="form-control" id="ma-ca-lam">
-            </div>
+                <label for="ngay-lam-viec">Ngày ngày kết thúc:</label>
+                <input type="date" class="form-control" id="ngay-ket-thuc">
+              </div>
             <div class="form-group">
-              <label for="ghi-chu">Ghi chú:</label>
-              <input type="text" class="form-control" id="ghi-chu">
-            </div>
-            <div class="form-group">
-              <label for="xac-nhan">Xác nhận:</label>
-              <select class="form-control" id="xac-nhan">
-                <option value="da-lam">Đã làm</option>
-                <option value="chua-lam">Chưa làm</option>
-              </select>
+              <label for="luong">Lương:</label>
+              <input type="text" class="form-control" id="luong">
             </div>
           </form>
         </div>
@@ -174,19 +171,16 @@
                   <input type="date" class="form-control" id="edit-ngay-lam-viec">
                 </div>
                 <div class="form-group">
+                    <label for="edit-ngay-ket-thuc">Ngày kết thúc:</label>
+                    <input type="date" class="form-control" id="edit-ngay-ket-thuc">
+                  </div>
+                <div class="form-group">
                   <label for="edit-ma-ca-lam">Mã ca làm:</label>
                   <input type="text" class="form-control" id="edit-ma-ca-lam">
                 </div>
                 <div class="form-group">
-                  <label for="edit-ghi-chu">Ghi chú:</label>
-                  <input type="text" class="form-control" id="edit-ghi-chu">
-                </div>
-                <div class="form-group">
-                  <label for="edit-xac-nhan">Xác nhận:</label>
-                  <select class="form-control" id="edit-xac-nhan">
-                    <option value="da-lam">Đã làm</option>
-                    <option value="chua-lam">Chưa làm</option>
-                  </select>
+                  <label for="edit-luong">lương:</label>
+                  <input type="text" class="form-control" id="edit-luong">
                 </div>
               </form>
             </div>
@@ -213,22 +207,22 @@
   // Bắt sự kiện click vào button Lưu trong modal thêm mới
   document.querySelector('#saveTable').addEventListener('click', function() {
     // Lấy giá trị các input trong modal
-    const maNV = document.querySelector('#ma-nhan-vien').value;
+    const maCa = document.querySelector('#ma-ca').value;
     const ngayLV = document.querySelector('#ngay-lam-viec').value;
-    const maCa = document.querySelector('#ma-ca-lam').value;
-    const ghiChu = document.querySelector('#ghi-chu').value;
-    const xacNhan = document.querySelector('#xac-nhan').value;
+    const ngaykt = document.querySelector('#ngay-ket-thuc').value;
+    const tenCa = document.querySelector('#ten-ca').value;
+    const luong = document.querySelector('#luong').value;
 
     // Tạo một hàng mới
     const row = tableList.insertRow();
 
     // Thêm các ô vào hàng mới
     row.innerHTML = `
-      <td>${maNV}</td>
-      <td>${ngayLV}</td>
       <td>${maCa}</td>
-      <td>${ghiChu}</td>
-      <td>${xacNhan}</td>
+      <td>${tenCa}</td>
+      <td>${ngayLV}</td>
+      <td>${ngaykt}</td>
+      <td>${luong}</td>
       <td>
         <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
         <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>

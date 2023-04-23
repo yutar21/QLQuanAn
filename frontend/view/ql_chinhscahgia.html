@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quản lý lịch làm việc</title>
+    <title>Quản lý chính sách giá</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,10 +46,10 @@
         <li><a class="app-menu__item " href="ql_ban.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span></a></li>
         </li>
         <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản phiếu giảm giá</span></a></li>
-        <li><a class="app-menu__item " href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý chính sách giá</span></a></li>
-        <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li><a class="app-menu__item active" href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý chính sách giá</span></a></li>
+        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-              <li><a class="treeview-item active" href="ql_lich_lam_viec.html"><i class="icon fa fa-circle-o"></i>Lịch</a></li>
+              <li><a class="treeview-item " href="ql_lich_lam_viec.html"><i class="icon fa fa-circle-o"></i>Lịch</a></li>
               <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca làm</a></li>
             </ul>
           </li>        
@@ -62,15 +62,15 @@
     <main class="app-content">
       <div class="app-title">
         <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Lịch làm việc</h1>
+          <h1><i class="fa fa-laptop"></i>  Chính sách giá</h1>
           <p> Danh sách</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> lịch làm việc</a></li>
+          <li class="breadcrumb-item"><a href="#"> chính sách giá</a></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-success" id="addTable" data-toggle="modal" data-target="#addModal">Thêm lịch</button>
+      <button type="button" class="btn btn-success" id="addTable" data-toggle="modal" data-target="#addModal">Thêm chính sách</button>
       <br /><br />
       <div class="content-wrapper">
         <section class="content">
@@ -81,21 +81,21 @@
                     <table class="table table-bordered table-hover table-striped" id="tableList">
                       <thead>
                         <tr>
-                          <th>Mã nhân viên</th>
-                          <th>ngày làm việc</th>
-                          <th>mã ca làm</th>
+                          <th>MaCSG</th>
+                          <th>MaGiamGia</th>
+                          <th>Start</th>
+                          <th>End</th>
                           <th>ghi chú</th>
-                          <th>xác nhận</th>
                           <th>Tuỳ chọn</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>5425424</td>
-                          <td>23/3/2023</td>
-                          <td>5554</td>
-                          <td>Duc deptrai vccc</td>
-                          <td>đã làm</td>
+                          <td>111121</td>
+                          <td>11-11-2023</td>
+                          <td>22-11-2023</td>
+                          <td>~~~~</td>
                           <td>
                             <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
@@ -127,29 +127,25 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="ma-nhan-vien">Mã nhân viên:</label>
+              <label for="ma-MaCSG">MaCSG:</label>
               <input type="text" class="form-control" id="ma-nhan-vien">
             </div>
             <div class="form-group">
-              <label for="ngay-lam-viec">Ngày làm việc:</label>
+                <label for="ma-giam-gia">MaGiamGia:</label>
+                <input type="text" class="form-control" id="ma-nhan-vien">
+              </div>
+            <div class="form-group">
+              <label for="ngay-lam-viec">Start:</label>
               <input type="date" class="form-control" id="ngay-lam-viec">
             </div>
             <div class="form-group">
-              <label for="ma-ca-lam">Mã ca làm:</label>
-              <input type="text" class="form-control" id="ma-ca-lam">
-            </div>
+                <label for="ngay-End">End:</label>
+                <input type="date" class="form-control" id="ngay-lam-viec">
+              </div>
             <div class="form-group">
               <label for="ghi-chu">Ghi chú:</label>
               <input type="text" class="form-control" id="ghi-chu">
             </div>
-            <div class="form-group">
-              <label for="xac-nhan">Xác nhận:</label>
-              <select class="form-control" id="xac-nhan">
-                <option value="da-lam">Đã làm</option>
-                <option value="chua-lam">Chưa làm</option>
-              </select>
-            </div>
-          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
@@ -170,23 +166,24 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
-                  <label for="edit-ngay-lam-viec">Ngày làm việc:</label>
+                    <label for="edit-MaCSG">MaCSG:</label>
+                    <input type="text" class="form-control" id="edit-ma-ca-lam">
+                  </div>
+                <div class="form-group">
+                  <label for="edit-ngay-lam-viec">Start:</label>
                   <input type="date" class="form-control" id="edit-ngay-lam-viec">
                 </div>
                 <div class="form-group">
-                  <label for="edit-ma-ca-lam">Mã ca làm:</label>
+                    <label for="edit-ngay-lam-viec">Ngày làm việc:</label>
+                    <input type="date" class="form-control" id="edit-ngay-lam-viec">
+                  </div>
+                <div class="form-group">
+                  <label for="edit-End">End:</label>
                   <input type="text" class="form-control" id="edit-ma-ca-lam">
                 </div>
                 <div class="form-group">
                   <label for="edit-ghi-chu">Ghi chú:</label>
                   <input type="text" class="form-control" id="edit-ghi-chu">
-                </div>
-                <div class="form-group">
-                  <label for="edit-xac-nhan">Xác nhận:</label>
-                  <select class="form-control" id="edit-xac-nhan">
-                    <option value="da-lam">Đã làm</option>
-                    <option value="chua-lam">Chưa làm</option>
-                  </select>
                 </div>
               </form>
             </div>
