@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lý nhân viên</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">Nhà Hàng</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <!-- User Menu-->
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-cog fa-lg"></i> Cài đặt</a></li>
+                    <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-user fa-lg"></i> Hồ sơ</a></li>
+                    <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Đăng
+                            xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/setting.png" alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name">admin</p>
+                <p class="app-sidebar__user-designation">admin@gmail.com</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item " href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">Trang chủ</span></a></li>
+            <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin
+                            nhân viên</a></li>
+                    <li><a class="treeview-item active" href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i>
+                            Thêm nhân viên</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item " href="ql_ban.html"><i class="app-menu__icon fa fa-th-list"></i><span
+                        class="app-menu__label">Quản lý bàn</span></a></li>
+            </li>
+            <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i class="app-menu__icon fa fa-th-list"></i><span
+                        class="app-menu__label">Quản phiếu giảm giá</span></a></li>
+            <li><a class="app-menu__item" href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span
+                        class="app-menu__label">Quản lý chính sách giá</span></a></li>
+            <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm
+                        việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item " href="ql_lich_lam_viec.html"><i
+                                class="icon fa fa-circle-o"></i>Lịch</a></li>
+                    <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca
+                            làm</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i
+                        class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá
+                        cả</span></a></li>
+            <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span
+                        class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
+            <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span
+                        class="app-menu__label">Quản lý kho</span></a></li>
+            <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">Báo cáo thông kê</span></a></li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div class="div">
+                <h1><i class="fa fa-laptop"></i> Danh sách nhân viên</h1>
+                <p> Thêm nhân viên</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#"> nhân viên</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Thêm nhân viên</h3>
+            </div>
+            <form role="form" action="/add_nhanvien.html" method="post">
+                <div class="box-body">
+
+
+                    <div class="form-group">
+                        <label for="username">Tên tài khoản đăng nhập</label>
+                        <input type="text" class="form-control" id="username-input" name="username"
+                            placeholder="Username" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpassword">Confirm password</label>
+                        <input type="password" class="form-control" id="cpassword" name="cpassword"
+                            placeholder="Confirm Password" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fname">Ngày sinh</label>
+                        <input type="text" class="form-control" id="birthday-input" name="fname"
+                            placeholder="First name" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lname">Họ Tên</label>
+                        <input type="text" class="form-control" id="gender-input" name="lname" placeholder="Last name"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address-input" name="address" placeholder="address"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phone-input" name="phone" placeholder="Phone"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Giới tính</label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="gender" id="male" value="1">
+                                nam
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" id="female" value="2">
+                                nữ
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-success" id="saveBtn">Lưu</button>
+                    <button type="button" class="btn btn-danger" id="backBtn">Thoát</button>
+                </div>
+                <script>
+                    // Lấy thông tin từ query string
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tenNhanVien = urlParams.get('tenNhanVien');
+                    const ngaySinh = urlParams.get('ngaySinh');
+                    const gioiTinh = urlParams.get('gioiTinh');
+                    const diaChi = urlParams.get('diaChi');
+                    const soDienThoai = urlParams.get('soDienThoai');
+                    const tenTaiKhoan = urlParams.get('tenTaiKhoan');
+
+                    // Điền thông tin vào các trường của biểu mẫu
+                    document.getElementById('username-input').value = tenTaiKhoan;
+                    document.getElementById('email').value = '';
+                    document.getElementById('password').value = '';
+                    document.getElementById('cpassword').value = '';
+                    document.getElementById('address-input').value = diaChi;
+                    document.getElementById('birthday-input').value = ngaySinh;
+                    document.getElementById('gender-input').value = tenNhanVien;
+                    document.getElementById('phone-input').value = soDienThoai;
+                    if (gioiTinh === 'nam') {
+                        document.getElementById('male').checked = true;
+                    } else if (gioiTinh === 'nữ') {
+                        document.getElementById('female').checked = true;
+                    }
+
+                    // Lấy đối tượng button Save Changes
+                    var saveBtn = document.getElementById('saveBtn');
+
+                    // Thêm sự kiện click cho button Save Changes
+                    saveBtn.addEventListener('click', function () {
+                        // Lấy các giá trị từ các input và select của form
+                        var username = document.getElementById('username').value;
+                        var email = document.getElementById('email').value;
+                        var password = document.getElementById('password').value;
+                        var cpassword = document.getElementById('cpassword').value;
+                        var fname = document.getElementById('fname').value;
+                        var phone = document.getElementById('phone').value;
+                        var gender = document.querySelector('input[name="gender"]:checked').value;
+
+                        // Kiểm tra nếu các giá trị rỗng thì thông báo lỗi
+                        if (groups === '' || store === '' || username === '' || email === '' || password === '' || cpassword === '' || fname === '' || lname === '' || phone === '' || gender === '') {
+                            alert('Please fill all fields!');
+                            return;
+                        }
+
+                        // Kiểm tra nếu password và confirm password không giống nhau thì thông báo lỗi
+                        if (password !== cpassword) {
+                            alert('Passwords do not match!');
+                            return;
+                        }
+
+                        // Thực hiện gửi form
+                        document.getElementById('userForm').submit();
+                    });
+
+                    // Lấy đối tượng button Back
+                    var backBtn = document.getElementById('backBtn');
+
+                    // Thêm sự kiện click cho button Back
+                    backBtn.addEventListener('click', function () {
+                        // Chuyển về trang danh sách user
+                        window.location.href = 'ql_nhanvien.html';
+                    });
+                </script>
+
+
+
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script type="text/javascript" src="js/plugins/chart.js"></script>
+    <script type="text/javascript">
+        var data = {
+            labels: ["January", "February", "March", "April", "May"],
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [65, 59, 80, 81, 56]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86]
+                }
+            ]
+        };
+        var pdata = [
+            {
+                value: 300,
+                color: "#46BFBD",
+                highlight: "#5AD3D1",
+                label: "Complete"
+            },
+            {
+                value: 50,
+                color: "#F7464A",
+                highlight: "#FF5A5E",
+                label: "In-Progress"
+            }
+        ]
+
+        var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+        var lineChart = new Chart(ctxl).Line(data);
+
+        var ctxp = $("#pieChartDemo").get(0).getContext("2d");
+        var pieChart = new Chart(ctxp).Pie(pdata);
+    </script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+        if (document.location.hostname == 'pratikborsadiya.in') {
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-72504830-1', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+</body>
+
+</html>
