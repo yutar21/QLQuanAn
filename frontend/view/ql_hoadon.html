@@ -53,7 +53,7 @@
               <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca làm</a></li>
             </ul>
           </li>        
-          <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span></a></li>
+          <li><a class="app-menu__item " href="thucdon_monan.html"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span></a></li>
         <li><a class="app-menu__item active" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
         <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
         <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
@@ -74,7 +74,7 @@
       <br /><br />
       <div class="container">
         <h2>Danh sách hóa đơn</h2>
-        <table class="table table-bordered table-hover table-striped" id="invoiceList">
+        <table class="table table-bordered table-hover table-striped" id="tableList">
           <thead>
             <tr>
               <th>Mã hóa đơn</th>
@@ -96,7 +96,7 @@
               <td>Nguyễn Văn A</td>
               <td>
                 <button class="btn btn-primary print-btn"><i class="fa fa-print"></i></button>
-                <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
@@ -108,20 +108,180 @@
               <td>NV002</td>
               <td>Nguyễn Văn B</td>
               <style>
-                /* style cho button */
-.print-btn, .edit-btn, .delete-btn {
-  margin-right: 5px;
-}
+                /* style cho button */.print-btn, .edit-btn, .delete-btn {margin-right: 5px;}
               </style>
               <td>
                 <button class="btn btn-primary print-btn"><i class="fa fa-print"></i></button>
-                <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
           </tbody>
         </table>
-      </div>      
+      </div>  
+       <!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Thêm mới</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ma-ca">Mã hóa đơn:</label>
+            <input type="text" class="form-control" id="ma-ca">
+          </div>
+          <div class="form-group">
+              <label for="ten-ca">Ngày tạo:</label>
+              <input type="date" class="form-control" id="ten-ca">
+          </div>
+          <div class="form-group">
+            <label for="ngay-lam-viec">Mã giảm giá:</label>
+            <input type="text" class="form-control" id="ngay-lam-viec">
+          </div>
+          <div class="form-group">
+              <label for="ngay-lam-viec">Tông tiền thanh toán:</label>
+              <input type="number" class="form-control" id="ngay-ket-thuc">
+            </div>
+          <div class="form-group">
+            <label for="luong">Mã nhân viên thu:</label>
+            <input type="text" class="form-control" id="luong">
+          </div>
+          <div class="form-group">
+            <label for="luong">Tên khách hàng:</label>
+            <input type="text" class="form-control" id="luong">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary" id="saveTable">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>  
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Chỉnh sửa thông tin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="edit-ma-ca-lam">Mã hóa đơn:</label>
+                <input type="text" class="form-control" id="edit-ma-ca-lam">
+              </div>
+              <div class="form-group">
+                <label for="edit-ten-ca">Ngày tạo:</label>
+                <input type="date" class="form-control" id="edit-ten-ca">
+              </div>
+              <div class="form-group">
+                <label for="edit-ngay-lam-viec">Mã giảm giá:</label>
+                <input type="text" class="form-control" id="edit-ngay-lam-viec">
+              </div>
+              <div class="form-group">
+                  <label for="edit-ngay-ket-thuc">Tông tiền thanh toán:</label>
+                  <input type="number" class="form-control" id="edit-ngay-ket-thuc">
+                </div>
+              <div class="form-group">
+                <label for="edit-luong">Mã nhân viên thu:</label>
+                <input type="text" class="form-control" id="edit-luong">
+              </div>
+              <div class="form-group">
+                <label for="edit-luong">Tên khách hàng:</label>
+                <input type="text" class="form-control" id="edit-luong">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+// Lấy đối tượng button Thêm lịch
+const addBtn = document.querySelector('#addTable');
+const editBtn = document.querySelector('#editModal');
+
+// Lấy đối tượng table danh sách
+const tableList = document.querySelector('#tableList tbody');
+const deleteButtons = document.querySelectorAll('.delete-btn');
+deleteButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const row = btn.parentNode.parentNode; // lấy ra hàng chứa button đang được click
+    row.parentNode.removeChild(row); // xoá hàng đó khỏi bảng
+  });
+});
+
+// Bắt sự kiện click vào button Thêm lịch
+addBtn.addEventListener('click', function() {
+  // Hiển thị modal thêm mới
+  $('#addModal').modal('show');
+});
+editBtn.addEventListener('click', function() {
+  // Hiển thị modal thêm mới
+  $('#editModal').modal('show');
+});
+
+// Bắt sự kiện click vào button Lưu trong modal thêm mới
+document.querySelector('#saveTable').addEventListener('click', function() {
+  // Lấy giá trị các input trong modal
+  const maCa = document.querySelector('#ma-ca').value;
+  const ngayLV = document.querySelector('#ngay-lam-viec').value;
+  const ngaykt = document.querySelector('#ngay-ket-thuc').value;
+  const tenCa = document.querySelector('#ten-ca').value;
+  const luong = document.querySelector('#luong').value;
+
+  // Tạo một hàng mới
+  const row = tableList.insertRow();
+
+  // Thêm các ô vào hàng mới
+  row.innerHTML = `
+    <td>${maCa}</td>
+    <td>${tenCa}</td>
+    <td>${ngayLV}</td>
+    <td>${ngaykt}</td>
+    <td>${luong}</td>
+    <td>
+      <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
+      <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+    </td>
+  `;
+
+  // Đóng modal thêm mới
+  $('#addModal').modal('hide');
+});
+    </script>
+    <script>
+      // Add event listener to the "Lưu" button in the modal
+document.querySelector('#editModal .modal-footer .btn-primary').addEventListener('click', function() {
+// Get the input values from the form
+var ngayLamViec = document.querySelector('#edit-ngay-lam-viec').value;
+var maCaLam = document.querySelector('#edit-ma-ca-lam').value;
+var ghiChu = document.querySelector('#edit-ghi-chu').value;
+var xacNhan = document.querySelector('#edit-xac-nhan').value;
+
+// Update the corresponding table row with the edited data
+var tableRow = document.querySelector('#tableList tbody tr');
+tableRow.querySelector('td:nth-child(2)').textContent = ngayLamViec;
+tableRow.querySelector('td:nth-child(3)').textContent = maCaLam;
+tableRow.querySelector('td:nth-child(4)').textContent = ghiChu;
+tableRow.querySelector('td:nth-child(5)').textContent = xacNhan;
+
+// Close the modal
+$('#editModal').modal('hide');
+});
+    </script>    
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
