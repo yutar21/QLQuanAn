@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quản lý phiếu giảm giá</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body class="app sidebar-mini">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="index.html">Nhà Hàng</a>
+        <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+            aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <!-- User Menu-->
+            <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown"
+                    aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-cog fa-lg"></i> Cài đặt</a></li>
+                    <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-user fa-lg"></i> Hồ sơ</a></li>
+                    <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Đăng
+                            xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/setting.png" alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name">admin</p>
+                <p class="app-sidebar__user-designation">admin@gmail.com</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item " href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span
+                        class="app-menu__label">Trang chủ</span></a></li>
+            <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin
+                            nhân viên</a></li>
+                    <li><a class="treeview-item" href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân
+                            viên</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item " href="ql_ban.html"><i class="app-menu__icon fa fa-th-list"></i><span
+                        class="app-menu__label">Quản lý bàn</span></a></li>
+            </li>
+            <li><a class="app-menu__item active" href="ql_phieugiamgia.html"><i
+                        class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản phiếu giảm
+                        giá</span></a></li>
+            <li><a class="app-menu__item " href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span
+                        class="app-menu__label">Quản lý chính sách giá</span></a></li>
+            <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm
+                        việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="treeview-item " href="ql_lich_lam_viec.html"><i
+                                class="icon fa fa-circle-o"></i>Lịch</a></li>
+                    <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca
+                            làm</a></li>
+                </ul>
+            </li>
+            <li><a class="app-menu__item " href="thucdon_monan.html"><i class="app-menu__icon fa fa-file-text"></i><span
+                        class="app-menu__label">Thực đơn và giá cả</span></a></li>
+            <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span
+                        class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
+            <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span
+                        class="app-menu__label">Quản lý kho</span></a></li>
+            <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
+                        class="app-menu__label">Báo cáo thông kê</span></a></li>
+        </ul>
+    </aside>
+    <main class="app-content">
+        <div class="app-title">
+            <div class="div">
+                <h1><i class="fa fa-laptop"></i> Danh sách phiếu giảm giá</h1>
+                <p> phiếu giảm giá</p>
+            </div>
+            <ul class="app-breadcrumb breadcrumb">
+                <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+                <li class="breadcrumb-item"><a href="#"> phiếu giảm giá</a></li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-success" id="addTable">Thêm phiếu</button>
+        <br /><br />
+        <!-- box-->
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-body">
+                                <table class="table table-bordered table-hover table-striped" id="tableList">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã giảm giá</th>
+                                            <th>% giảm</th>
+                                            <th>% tối đa</th>
+                                            <th>Thời gian bắt đầu</th>
+                                            <th>Thời Gian kết thúc</th>
+                                            <th>ghi chú </th>
+                                            <th>Tuỳ chọn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>5425424</td>
+                                            <td>50%</td>
+                                            <td>70%</td>
+                                            <td>10/3/2023</td>
+                                            <td>20/3/2023</td>
+                                            <td>Duc</td>
+                                            <td>
+                                                <button class="btn btn-info edit-btn" data-toggle="modal"
+                                                    data-target="#editModal"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger delete-btn"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>5425424</td>
+                                            <td>50%</td>
+                                            <td>70%</td>
+                                            <td>10/3/2023</td>
+                                            <td>20/3/2023</td>
+                                            <td>Duc</td>
+                                            <td>
+                                                <button class="btn btn-info edit-btn" data-toggle="modal"
+                                                    data-target="#editModal"><i class="fa fa-edit"></i></button>
+                                                <button class="btn btn-danger delete-btn"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- col-md-12 -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addModalLabel">Thêm mới</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="ma-ca">Mã giảm giá:</label>
+                                <input type="text" class="form-control" id="ma-ca">
+                            </div>
+                            <div class="form-group">
+                                <label for="ten-ca">% giảm:</label>
+                                <input type="text" class="form-control" id="ten-ca">
+                            </div>
+                            <div class="form-group">
+                                <label for="ngay-lam-viec">% tối đa:</label>
+                                <input type="text" class="form-control" id="ngay-lam-viec">
+                            </div>
+                            <div class="form-group">
+                                <label for="ngay-lam-viec">Thời gian bắt đầu:</label>
+                                <input type="date" class="form-control" id="ngay-bat-dau">
+                            </div>
+                            <div class="form-group">
+                                <label for="ngay-ket-thuc">Thời gian kết thúc:</label>
+                                <input type="date" class="form-control" id="ngay-ket-thuc">
+                            </div>
+                            <div class="form-group">
+                                <label for="ghichu">Ghi chú:</label>
+                                <input type="text" class="form-control" id="ghichu">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn btn-primary" id="saveTable">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Chỉnh sửa thông tin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" action="/ql_phieugiamgia.html" method="post">
+                            <div class="form-group">
+                                <label for="edit-ma-ca-lam">Mã giảm giá:</label>
+                                <input type="text" class="form-control" id="edit-ma-ca-lam" name="magg">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-ten-ca">% giảm:</label>
+                                <input type="text" class="form-control" id="edit-ten-ca" name="giam">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-ngay-lam-viec">% tối đa:</label>
+                                <input type="text" class="form-control" id="edit-ngay-lam-viec" name="toida">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-ngay-bat-dau">Thời gian bắt đầu:</label>
+                                <input type="date" class="form-control" id="edit-ngay-bat-dau" name="daystart">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-ngay-ket-thuc">Thời gian kết thúc:</label>
+                                <input type="date" class="form-control" id="edit-ngay-ket-thuc" name="dayfinish">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-luong">Lương:</label>
+                                <input type="text" class="form-control" id="edit-luong" name="luong">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            // Lấy đối tượng button Thêm lịch
+            const addBtn = document.querySelector('#addTable');
+
+            // Lấy đối tượng table danh sách
+            const tableList = document.querySelector('#tableList tbody');
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const row = btn.parentNode.parentNode; // lấy ra hàng chứa button đang được click
+                    row.parentNode.removeChild(row); // xoá hàng đó khỏi bảng
+                });
+            });
+
+            // Bắt sự kiện click vào button Thêm lịch
+            addBtn.addEventListener('click', function () {
+                // Hiển thị modal thêm mới
+                $('#addModal').modal('show');
+            });
+
+            // Bắt sự kiện click vào button Lưu trong modal thêm mới
+            document.querySelector('#saveTable').addEventListener('click', function () {
+                // Lấy giá trị các input trong modal
+                const maCa = document.querySelector('#ma-ca').value;
+                const ngayLV = document.querySelector('#ngay-lam-viec').value;
+                const ngaykt = document.querySelector('#ngay-ket-thuc').value;
+                const tenCa = document.querySelector('#ten-ca').value;
+                const luong = document.querySelector('#luong').value;
+
+                // Tạo một hàng mới
+                const row = tableList.insertRow();
+
+                // Thêm các ô vào hàng mới
+                row.innerHTML = `
+    <td>${maCa}</td>
+    <td>${tenCa}</td>
+    <td>${ngayLV}</td>
+    <td>${ngaykt}</td>
+    <td>${luong}</td>
+    <td>
+      <button class="btn btn-info edit-btn" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
+      <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
+    </td>
+  `;
+
+                // Đóng modal thêm mới
+                $('#addModal').modal('hide');
+            });
+        </script>
+        <script>
+            // Add event listener to the "Lưu" button in the modal
+            document.querySelector('#editModal .modal-footer .btn-primary').addEventListener('click', function () {
+                // Get the input values from the form
+                var ngayLamViec = document.querySelector('#edit-ngay-lam-viec').value;
+                var maCaLam = document.querySelector('#edit-ma-ca-lam').value;
+                var ghiChu = document.querySelector('#edit-ghi-chu').value;
+                var xacNhan = document.querySelector('#edit-xac-nhan').value;
+
+                // Update the corresponding table row with the edited data
+                var tableRow = document.querySelector('#tableList tbody tr');
+                tableRow.querySelector('td:nth-child(2)').textContent = ngayLamViec;
+                tableRow.querySelector('td:nth-child(3)').textContent = maCaLam;
+                tableRow.querySelector('td:nth-child(4)').textContent = ghiChu;
+                tableRow.querySelector('td:nth-child(5)').textContent = xacNhan;
+
+                // Close the modal
+                $('#editModal').modal('hide');
+            });
+        </script>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+        if (document.location.hostname == 'pratikborsadiya.in') {
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-72504830-1', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+</body>
+
+</html>

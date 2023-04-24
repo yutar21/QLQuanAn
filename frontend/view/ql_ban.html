@@ -1,135 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< Updated upstream
-  </head>
-  <body class="app sidebar-mini">
-    <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">Nhà Hàng</a>
-      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
-      <!-- Navbar Right Menu-->
-      <ul class="app-nav">
-        <!-- User Menu-->
-        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-cog fa-lg"></i> Cài đặt</a></li>
-            <li><a class="dropdown-item" href="ho_so.html"><i class="fa fa-user fa-lg"></i> Hồ sơ</a></li>
-            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Đăng xuất</a></li>
-          </ul>
-        </li>
-      </ul>
-    </header>
-    <!-- Sidebar menu-->
-    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-    <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/setting.png" alt="User Image">
-        <div>
-          <p class="app-sidebar__user-name">admin</p>
-          <p class="app-sidebar__user-designation">admin@gmail.com</p>
-        </div>
-      </div>
-      <ul class="app-menu">
-        <li><a class="app-menu__item " href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Trang chủ</span></a></li>
-        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Quản lý nhân viên</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item " href="ql_nhanvien.html"><i class="icon fa fa-circle-o"></i>Thông tin nhân viên</a></li>
-            <li><a class="treeview-item" href="add_nhanvien.html"><i class="icon fa fa-circle-o"></i> Thêm nhân viên</a></li>
-          </ul>
-        </li>
-        <li><a class="app-menu__item active" href="ql_ban.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý bàn</span></a></li>
-        </li>
-        <li><a class="app-menu__item " href="ql_phieugiamgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản phiếu giảm giá</span></a></li>
-        <li><a class="app-menu__item " href="ql_chinhscahgia.html"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý chính sách giá</span></a></li>
-        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Quản lý lịch làm việc</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-              <li><a class="treeview-item " href="ql_lich_lam_viec.html"><i class="icon fa fa-circle-o"></i>Lịch</a></li>
-              <li><a class="treeview-item " href="ql_cal_lam.html"><i class="icon fa fa-circle-o"></i> Quản lý ca làm</a></li>
-            </ul>
-          </li>        
-          <li><a class="app-menu__item " href="thucdon_monan.html"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Thực đơn và giá cả</span></a></li>
-        <li><a class="app-menu__item" href="ql_hoadon.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Hóa đơn và thanh toán</span></a></li>
-        <li><a class="app-menu__item" href="ql_kho.html"><i class="app-menu__icon fa fa fa-edit"></i><span class="app-menu__label">Quản lý kho</span></a></li>
-        <li><a class="app-menu__item" href="baocao_thongke.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Báo cáo thông kê</span></a></li>
-      </ul>
-    </aside>
-    <main class="app-content">
-      <div class="app-title">
-        <div class="div">
-          <h1><i class="fa fa-laptop"></i>  Quản lý bàn</h1>
-          <p> Danh sách bàn</p>
-        </div>
-        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#"> bàn</a></li>
-        </ul>	<!-- Main content -->
-      </div>
-        <!-- HTML code -->
-<div class="container">
-  <h2>Danh sách bàn</h2>
-  <button type="button" class="btn btn-success" id="addTable">Thêm bàn</button>
-  <br /><br />
-  <table class="table table-bordered table-hover table-striped" id="tableList">
-    <thead>
-      <tr>
-        <th>Vị trí</th>
-        <th>Số người</th>
-        <th>Trạng thái</th>
-        <th>Tùy chọn</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>Đầy</td>
-        <td>
-          <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-          <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>0</td>
-        <td>Trống</td>
-        <td>
-          <button class="btn btn-info edit-btn"><i class="fa fa-edit"></i></button>
-          <button class="btn btn-danger delete-btn"><i class="fa fa-trash"></i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<!-- Định nghĩa cửa sổ modal -->
-<div class="modal fade" id="addTableModal" tabindex="-1" aria-labelledby="addTableModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addTableModalLabel">Thêm bàn mới</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="addTableForm">
-          <div class="mb-3">
-            <label for="tableLocation" class="form-label">Vị trí</label>
-            <input type="text" class="form-control" id="tableLocation" required>
-          </div>
-          <div class="mb-3">
-            <label for="tableCapacity" class="form-label">Số người</label>
-            <input type="number" class="form-control" id="tableCapacity" required>
-          </div>
-          <div class="mb-3">
-            <label for="tableStatus" class="form-label">Trạng thái</label>
-            <select class="form-control" id="tableStatus" required>
-              <option value="Trống">Trống</option>
-              <option value="Đầy">Đầy</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-        <button type="submit" class="btn btn-primary" form="addTableForm">Thêm</button>
-=======
 <head>
   <title>Quản lý bàn</title>
   <meta charset="utf-8">
@@ -170,7 +41,7 @@
       <div>
         <p class="app-sidebar__user-name">admin</p>
         <p class="app-sidebar__user-designation">admin@gmail.com</p>
->>>>>>> Stashed changes
+        >>>>>>> Stashed changes
       </div>
     </div>
     <ul class="app-menu">
